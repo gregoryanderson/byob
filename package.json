@@ -1,0 +1,15 @@
+{
+  "name": "byob",
+  "version": "1.0.0",
+  "main": "scrape.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "nightmare": "^3.0.2"
+  }
+}
