@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "csv-parser": "^2.3.1",
+    "express": "^4.17.1",
     "knex": "^0.19.4",
     "nightmare": "^3.0.2",
     "pg": "^7.12.1"
