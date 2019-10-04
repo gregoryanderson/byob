@@ -10,6 +10,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "nightmare": "^3.0.2"
+    "csv-parser": "^2.3.1",
+    "knex": "^0.19.4",
+    "nightmare": "^3.0.2",
+    "pg": "^7.12.1"
   }
 }
