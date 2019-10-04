@@ -8,7 +8,7 @@ app.set("port", process.env.PORT || 3000);
 app.locals.title = "BYOB";
 
 app.get("/", (request, response) => {
-  response.send("This is the main page");
+  response.send(results || "This is the main page");
 });
 
 app.listen(app.get("port"), () => {
@@ -19,11 +19,8 @@ app.listen(app.get("port"), () => {
 
 app.use(express.json());
 
-module.exports = playerData = () => {
-  fs.createReadStream("1950.csv")
-    .pipe(csv())
-    .on("data", data => results.push(data))
-    .on("end", results => results);
-};
+fs.createReadStream("smallData.csv")
+  .pipe(csv())
+  .on("data", data => results.push(data))
+  .on("end", () => console.log(results));
 
-console.log(playerData())
