@@ -77,7 +77,14 @@ const findOrCreatePlayer = (knex, rowOfStats) => {
 
 const createStats = (knex, statObj) => {
   return knex('allPlayers').where('player', statObj.Player).first()
-  return knex("stats").insert(statObj);
+    .then(player =>  {
+      return knex('stats').insert({
+          year: statObj.Year,
+          assists: statObj.AST,
+          points: statObj.PTS,
+          player_id: player.id
+    })
+  })
 };
 
 exports.seed = knex => {
