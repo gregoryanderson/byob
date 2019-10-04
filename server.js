@@ -69,3 +69,17 @@ app.post('/api/v1/players', (request, response) => {
     response.status(500).json({ error });
   });
 });
+
+app.delete('/api/v1/players/:id', (request, response) => {
+  database('allPlayers').where('id', request.params.id).select().del()
+  .then((res) => {
+    if(res){
+    response.status(200).send(`Player has been deleted`);
+    } else {
+    response.status(404).send(`Could not find player with ${request.params.id}`)
+    }
+  })
+  .catch((error) => {
+    response.status(500).send({error})
+  })
+})
