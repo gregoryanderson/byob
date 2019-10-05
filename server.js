@@ -50,6 +50,16 @@ app.get('/api/v1/players/:id', (request, response) => {
     });
 });
 
+app.get('/api/v1/stats/:id', (request, response) => {
+  database('stats').where('id', request.params.id).select()
+    .then((stat) => {
+      response.status(200).json(stat);
+    })
+    .catch((error) => {
+      response.status(500).json({ error });
+    });
+});
+
 app.post('/api/v1/players', (request, response) => {
   const player = request.body;
 
@@ -70,13 +80,33 @@ app.post('/api/v1/players', (request, response) => {
   });
 });
 
-app.delete('/api/v1/players/:id', (request, response) => {
-  database('allPlayers').where('id', request.params.id).select().del()
+app.post('/api/v1/stats', (request, response) => {
+  const stat = request.body;
+
+  for (let requiredParameter of ['year', 'assists', 'points', 'player_id']) {
+    if (!stat[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `Expected format: { title: <String>, author: <String> }. You're missing a "${requiredParameter}" property.` });
+    }
+  }
+
+  database('allPlayers').insert(stat, 'id')
+  .then(stat => {
+    response.status(201).json({ id: stat[0] })
+  })
+  .catch(error => {
+    response.status(500).json({ error });
+  });
+});
+
+app.delete('/api/v1/stats/:id', (request, response) => {
+  database('stats').where('id', request.params.id).del()
   .then((res) => {
     if(res){
-    response.status(200).send(`Player has been deleted`);
+    response.status(200).send(`Stat has been deleted`);
     } else {
-    response.status(404).send(`Could not find player with ${request.params.id}`)
+    response.status(404).send(`Could not find stat with ${request.params.id}`)
     }
   })
   .catch((error) => {
