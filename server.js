@@ -69,7 +69,7 @@ app.get('/api/v1/players/:id', (request, response) => {
     })
     //..but if there was an error to catch that error and send back a status code of 500 and send the error in json
     .catch((error) => {
-      response.status(500).json({ error });
+      response.status(500).json({ error: `Could not find player with and id of ${request.params.id}` });
     });
 });
 
@@ -83,7 +83,7 @@ app.get('/api/v1/stats/:id', (request, response) => {
     })
     //..but if there was an error to catch that error and send back a status code of 500 and send the error in json
     .catch((error) => {
-      response.status(500).json({ error });
+      response.status(500).json({ error: `Could not find stat with and id of ${request.params.id}` });
     });
 });
 
@@ -128,7 +128,7 @@ app.post('/api/v1/stats', (request, response) => {
       //..we are going to return a response of a status code of 422..
       return response
         .status(422)
-        .send({ error: `Expected format: { title: <String>, author: <String> }. You're missing a "${requiredParameter}" property.` });
+        .send({ error: `Expected format: { "year": <Number>, "assists": <Number>, "points": <Number>, "player_id": <Number> }. You're missing a property.` });
     }
   }
   //..otherwise we are going into the stats table in the database and inserting the stat with an assigned id..
@@ -153,7 +153,7 @@ app.delete('/api/v1/stats/:id', (request, response) => {
     response.status(200).send(`Stat has been deleted`);
     } else {
     //..or it sends a response with a 404 status code where the stat could not be found
-    response.status(404).send(`Could not find stat with ${request.params.id}`)
+    response.status(404).send(`Could not find stat with id of ${request.params.id}`)
     }
   })
     //..but if there was an error to catch that error and send back a status code of 500 and send the error in json  
