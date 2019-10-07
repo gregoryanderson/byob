@@ -113,7 +113,7 @@ Will post to the allPlayers table and return an the id of the successfully poste
       
 *example successful response* 
 
-> [{"id": 36925}]
+> {"id": 36925}
 
 #### /api/v1/stats/
 
@@ -121,7 +121,7 @@ Will post to the stats table and return an the id of the successfully posted sta
       
 *example successful response* 
 
-> [{ "id": 50312 }]
+> { "id": 50312 }
 
 
 #### DELETE
