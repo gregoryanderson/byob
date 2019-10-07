@@ -3,7 +3,7 @@ const fs = require("fs");
 const playersArray = [];
 const statsArray = []
 
-fs.createReadStream("playerStats.csv")
+fs.createReadStream("playerData.csv")
   .pipe(csv())
   .on("data", data => {if(!playersArray.find(obj => obj.Player === data.Player)){
     playersArray.push(data)
