@@ -87,6 +87,12 @@ Will query for all players and return an array of stat objects that match the id
     }
 ]
 
+*example error response*
+
+> {
+    "error": "Could not find player with and id of 43f34c"
+}
+
 #### /api/v1/stats/:id
 
 Will query for all players and return an array of stat objects that match the id.
@@ -105,24 +111,47 @@ Will query for all players and return an array of stat objects that match the id
     }
 ]
 
+
+*example error response*
+
+> {
+    "error": "Could not find stat with and id of 43f34c"
+}
+
 #### POST
 
 #### /api/v1/players/
 
 Will post to the allPlayers table and return an the id of the successfully posted player.
+
+*example body*
+
+> { "player": "Boom Shakalaka" }
       
 *example successful response* 
 
 > {"id": 36925}
 
+*example unsuccessful response*
+
+> { error: "Expected format: { player: <String> }. You're missing a player property." }
+
 #### /api/v1/stats/
 
 Will post to the stats table and return an the id of the successfully posted stat.
+
+*example successful body*
+
+> { "year": 2013, "assists": 2039, "points": 2943, "player_id": 32455 }
       
 *example successful response* 
 
 > { "id": 50312 }
 
+*example unsuccessful response*
+
+> { "error": "Expected format: { \"year\": <Number>, \"assists\": <Number>, \"points\": <Number>, \"player_id\": <Number> }, You're missing a property." }
+   
 
 #### DELETE
 
@@ -132,7 +161,11 @@ Will delete a stat year from the stats table and return a string of "Stat has be
 
 *example successful response*
 
-"Stat has been deleted."
+> "Stat has been deleted."
+
+*example error response*
+
+> "Could not find stat with id of 245354343"
 
 
 
