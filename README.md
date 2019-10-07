@@ -78,7 +78,7 @@ Will query for all players and return an array of stat objects that match the id
       
 *example successful response* 
 
-[
+> [
     {
         "id": 36252,
         "player": "D.J. White",
@@ -93,7 +93,7 @@ Will query for all players and return an array of stat objects that match the id
       
 *example successful response* 
 
-[
+> [
     {
         "id": 48398,
         "year": "2014",
@@ -113,7 +113,7 @@ Will post to the allPlayers table and return an the id of the successfully poste
       
 *example successful response* 
 
-{"id": 36925}
+> [{"id": 36925}]
 
 #### /api/v1/stats/
 
@@ -121,7 +121,7 @@ Will post to the stats table and return an the id of the successfully posted sta
       
 *example successful response* 
 
-{ "id": 50312 }
+> [{ "id": 50312 }]
 
 
 #### DELETE
@@ -133,6 +133,8 @@ Will delete a stat year from the stats table and return a string of "Stat has be
 *example successful response*
 
 "Stat has been deleted."
+
+
 
 
 
