@@ -12,6 +12,8 @@ For this project, I utilized the framework express, to help with routes and requ
 
 https://byobanderson.herokuapp.com/
 
+(Link to Storyboard)[https://app.clubhouse.io/gaande/stories/space/6/everything]
+
 
 ### Calls
 
