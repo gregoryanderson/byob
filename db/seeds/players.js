@@ -1,7 +1,8 @@
 const csv = require("csv-parser");
 const fs = require("fs");
 const playersArray = [];
-const statsArray = []
+const statsArray = [];
+const data;
 
 fs.createReadStream("playerData.csv")
   .pipe(csv())
