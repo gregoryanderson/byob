@@ -1,21 +1,21 @@
-#BYOB
-##Build Your Own Backend
+# BYOB
+## Build Your Own Backend
 
-###Background
+### Background
 
 The learning goal of this project was to build a backend with a database that included a one-to-many relationship.
 The data in the project is a parsed CSV of professional basketball players' yearly stats. The one-to-many relationship is that one player has many years of stats. 
 
-###Tools used
+### Tools used
 
 For this project, I utilized the framework express, to help with routes and requests, knex, for SQL building with PostgreS, and I deployed the app to Heroku. 
 
 https://byobanderson.herokuapp.com/
 
 
-###Calls
+### Calls
 
-####GET
+#### GET
 
 #### /api/v1/players
 
@@ -105,7 +105,7 @@ Will query for all players and return an array of stat objects that match the id
     }
 ]
 
-####POST
+#### POST
 
 #### /api/v1/players/
 
@@ -124,7 +124,7 @@ Will post to the stats table and return an the id of the successfully posted sta
 { "id": 50312 }
 
 
-####DELETE
+#### DELETE
 
 #### /api/v1/stats/:id
 
