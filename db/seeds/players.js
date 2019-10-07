@@ -14,7 +14,8 @@ fs.createReadStream("playerStats.csv")
 
 const findOrCreatePlayer = (knex, rowOfStats) => {
     return knex("allPlayers").insert({
-      player: rowOfStats.Player
+      player: rowOfStats.Player,
+      position: rowOfStats.Pos
     })
   }
 
